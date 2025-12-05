@@ -1,7 +1,6 @@
 import logging
 from dotenv import load_dotenv
 import os
-from mangum import Mangum
 
 # Load environment variables from .env file before anything else
 # Look for .env file in the project root directory
@@ -28,6 +27,7 @@ app = FastAPI()
 # CORS configuration
 origins = [
     "http://localhost:3000",
+    "http://127.0.0.1:8000/",
     "https://phase-ii-todo-full-stack-web-applic.vercel.app/",
     # In a production environment, you would add your frontend's production URL here
 ]
@@ -69,5 +69,5 @@ async def on_shutdown():
 def read_root():
     return {"Hello": "World..."}
 
-
+from mangum import Mangum
 handler = Mangum(app)
