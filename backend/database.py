@@ -9,16 +9,18 @@ if not DATABASE_URL:
     DATABASE_URL = "postgresql://user:password@localhost:5432/todoapp"
 
 
-# For Neon Serverless PostgreSQL, we need to configure the engine with proper connection pooling
-# and SSL settings
+# For serverless environments like Vercel, we need to configure the engine with proper settings
+# to handle connection pooling and timeouts appropriately
 engine = create_engine(
     DATABASE_URL,
     connect_args={
-        "sslmode": "require",  # Required for Neon
+        "sslmode": "require",  # Required for secure connections
         "connect_timeout": 10,  # Set a reasonable timeout
     },
     pool_pre_ping=True,  # Helps with stale connections in serverless environments
     pool_recycle=300,  # Recycle connections to prevent issues with serverless
+    pool_size=5,  # Smaller pool size for serverless
+    max_overflow=10,  # Allow some overflow connections
     echo=False  # Set to True for SQL query logging during debugging
 )
 
