@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import os
 from mangum import Mangum
 
-
 # Load environment variables from .env file before anything else
 # Look for .env file in the project root directory
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Go up one level to project root
