@@ -1,0 +1,12 @@
+# Node.js/TypeScript
+node_modules/
+dist/
+build/
+out/
+.next/
+coverage/
+*.min.js
+
+# Next.js specific
+.next/
+out/

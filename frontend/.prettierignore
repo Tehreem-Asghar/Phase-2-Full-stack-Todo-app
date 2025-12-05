@@ -1,0 +1,14 @@
+# Node.js/TypeScript
+node_modules/
+dist/
+build/
+out/
+.next/
+coverage/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Next.js specific
+.next/
+out/
