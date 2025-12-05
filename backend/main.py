@@ -1,6 +1,8 @@
 import logging
 from dotenv import load_dotenv
 import os
+from mangum import Mangum
+
 
 # Load environment variables from .env file before anything else
 # Look for .env file in the project root directory
@@ -67,3 +69,6 @@ async def on_shutdown():
 @app.get("/")
 def read_root():
     return {"Hello": "World..."}
+
+
+handler = Mangum(app)
