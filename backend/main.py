@@ -2,11 +2,12 @@ import logging
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file before anything else
-# Look for .env file in the project root directory
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Go up one level to project root
-env_path = os.path.join(project_root, '.env')
-load_dotenv(dotenv_path=env_path)
+
+
+
+env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+load_dotenv(env_path)
+
 
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
